@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personalized Messages</title>
+  <!-- Cartoonish font for a cute design -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="message-container">
+    <h2>Tell me what to fix, i'll fix</h2>
+    <form id="messageForm" action="mailer.php" method="POST">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    
+    <div id="messagesList"></div>
+    <a href="index.html" class="back-link">Back to Home</a>
+  </div>
+  <script src="message.js"></script>
+</body>
+</html>

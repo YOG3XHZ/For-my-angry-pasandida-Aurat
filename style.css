@@ -1,0 +1,325 @@
+/* Global Resets & Responsive Design */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  /* background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%); */
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+.glass-card {
+  position: absolute;
+  bottom: 10%;  /* Adjust as needed for placement below lyrics */
+  left: 50%;
+  margin-bottom: 3%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 500px;
+  background: rgba(135, 126, 126, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(44, 28, 28, 0.3);
+  color: #eac1c1;
+  font-size: 1.2rem;
+  text-align: center;
+  z-index: 1000;
+}
+
+
+/* Video Background */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: contain;
+  filter: blur(0px);  /* Adjust the blur value as needed */
+  background-color: #000;
+  z-index: -2;
+}
+
+/* Heading (Repeating Fade In/Out) */
+#heading {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f78956;
+  z-index: 1000;
+  animation: headingFade 3s ease-in-out infinite;
+}
+@keyframes headingFade {
+  0%   { opacity: 0; }
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Glassmorphism Music Icon Button */
+#startButton {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: rgb(248, 115, 248);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(242, 161, 210, 0.833);
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #e58e8e;
+  z-index: 10000;
+  transition: background 0.3s, color 0.3s;
+}
+#startButton:hover {
+  background: rgba(223, 133, 133, 0.984);
+  color: #d63384;
+}
+
+/* Hidden Audio */
+#audio {
+  display: none;
+}
+
+/* Lyrics Container */
+.lyrics-container {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  color: #d121bc;
+  font-size: 3.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 10px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Fade In & Fade Out Animations */
+@keyframes fadeIn {
+  0%   { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-out {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Balloon Container */
+.balloons-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Balloon Elements */
+.balloon {
+  position: absolute;
+  bottom: -120px;
+  width: 60px;
+  height: 120px;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-25vh) rotate(2deg); }
+  50%  { transform: translateY(-50vh) rotate(-2deg); }
+  75%  { transform: translateY(-75vh) rotate(2deg); }
+  100% { transform: translateY(-120vh) rotate(0deg); }
+}
+.balloon-shape {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  width: 60px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  box-shadow: 0 5px 15px rgba(81, 80, 80, 0.3);
+  z-index: 2;
+  cursor: pointer;
+}
+.balloon-string {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #131111;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Splash Animation */
+.splash {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  filter: blur(15px) contrast(50);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: splashAnim 1.2s ease-out forwards;
+}
+@keyframes splashAnim {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1.2) rotate(15deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(30deg);
+  }
+  100% {
+    transform: scale(1.3) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Confetti Elements */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  opacity: 0.8;
+  animation: confettiFall 2s linear forwards;
+}
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Message Button (Centered at Bottom) */
+#messageButton {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #ee7bf0;
+  background: rgba(227, 164, 164, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 15px;
+  z-index: 10000;
+  transition: background 0.3s;
+}
+#messageButton:hover {
+  color: #000000;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .lyrics-container {
+    font-size: 2.5rem;
+    top: 5%;
+    left: 3%;
+    right: 3%;
+  }
+  #startButton {
+    font-size: 1.5rem;
+    padding: 10px;
+  }
+  #messageButton {
+    font-size: 1.3rem;
+    padding: 8px 16px;
+  }
+}
+@media (max-width: 480px) {
+  .lyrics-container {
+    font-size: 2rem;
+  }
+  #startButton {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
+  #messageButton {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+}
+
+/* --- Styles for the Personalized Message Page --- */
+/* Using a cute cartoon style */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+.message-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #7d7c7c; /* pastel pink background */
+  border: 3px dashed #000000;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+}
+.message-container h2 {
+  margin-bottom: 20px;
+  color: #f5aad2;
+}
+#messageForm input, #messageForm textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+}
+#messageForm button {
+  padding: 10px 20px;
+  background: #ff69b4;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Fredoka One', cursive;
+}
+.back-link {
+  display: block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #ff69b4;
+  font-weight: bold;
+}
+.user-message {
+  margin-top: 15px;
+  padding: 10px;
+  background: #ffe4e6;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid #ffb6c1;
+}

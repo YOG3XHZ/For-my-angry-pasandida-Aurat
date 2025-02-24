@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lyrics + Balloons</title>
+    <!-- Google Fonts & Font Awesome for music icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<!-- Video Background -->
+
+    <!-- Repeating Heading -->
+    <!-- <h1 id="heading">I'm Sorry Madam Ji</h1> -->
+
+    <video autoplay muted loop id="bgVideo">
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+    <!-- Glassmorphism Music Icon Button -->
+    <button id="startButton" title="Play Music">
+    <i class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- Hidden Audio -->
+    <audio id="audio" src="local.mp3"></audio>
+    
+
+
+    <!-- Lyrics Container -->
+    <div id="lyricsContainer" class="lyrics-container"></div>
+
+    <div id="apologyCard" class="glass-card">
+    <p>
+        Heyy Madam Jiii,<br><br>
+        I am truly sorry for my mistakes. You mean everything to me, and I promise to always cherish and care for you. Please forgive me and let me make things right.
+    </p>
+    </div>
+    <!-- Balloon Container -->
+    <div class="balloons-container" id="balloonsContainer"></div>
+
+    <!-- Message Button (Centered at Bottom) -->
+    <a href="message.html" id="messageButton">Maaf me here</a>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
